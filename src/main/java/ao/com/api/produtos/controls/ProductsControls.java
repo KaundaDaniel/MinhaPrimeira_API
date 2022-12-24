@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -19,9 +20,12 @@ private ProductService ps;
 @PostMapping("/Cadastrar")
 
 public ResponseEntity<?> cadastrar(@RequestBody ProductsModels pm){
-    return ps.cadastrar(pm);
+    return ps.cadastrarEditar(pm, "Cadastrar");
 }
-
+@PutMapping("/editar")
+public ResponseEntity<?> editar(@RequestBody ProductsModels pm){
+    return ps.cadastrarEditar(pm, "Editar");
+}
 @GetMapping("/listar")
 public Iterable <ProductsModels> listar (){
  return ps.listar();
