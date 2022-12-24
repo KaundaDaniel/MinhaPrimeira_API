@@ -37,4 +37,12 @@ public class ProductService {
 
       }
     }
+//Metodo para apagar Productos
+public ResponseEntity<RespostaModelo> apagar(long cod){
+    pr.deleteById(cod);
+    rm.setMessege("Produto removido com sucesso!");
+    return new ResponseEntity<RespostaModelo>(rm, HttpStatus.OK);
+
+}
+
 }
