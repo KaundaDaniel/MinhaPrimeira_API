@@ -23,7 +23,7 @@ import ao.com.api.produtos.service.ProductService;
 public class ProductsControls{
 @Autowired
 private ProductService ps;
-@PostMapping("/Cadastrar")
+@PostMapping("/cadastrar")
 
 public ResponseEntity<?> cadastrar(@RequestBody ProductsModels pm){
     return ps.cadastrarEditar(pm, "Cadastrar");
